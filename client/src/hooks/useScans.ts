@@ -4,14 +4,27 @@ import testData from "@/data/testData";
 
 export function useScans() {
   const [scans, setScans] = useState<Scan[]>(() => {
-    const stored = localStorage.getItem("scans");
-    console.log(JSON.parse(localStorage.getItem('scans') || "[]"))
-    if (stored) return JSON.parse(stored);
+    try {
+      const stored = localStorage.getItem("scans");
+      if (stored) {
+        return JSON.parse(stored) as Scan[];
+      }
 
-
-    localStorage.setItem("scans", JSON.stringify(testData));
-    return testData;
+      localStorage.setItem("scans", JSON.stringify(testData));
+      return testData;
+    } catch (err) {
+      console.error("Failed to read scans from localStorage", err);
+      return [];
+    }
   });
 
-  return { scans, setScans };
+  const saveScan = (scan: Scan) => {
+    setScans((prev) => {
+      const updated = [scan, ...prev];
+      localStorage.setItem("scans", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  return { scans, saveScan };
 }
