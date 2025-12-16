@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Camera } from "lucide-react";
@@ -6,6 +6,7 @@ import { useScans } from "@/hooks/useScans";
 import type { Scan } from "@/types/Scan";
 
 export default function ScannerPage() {
+  const [flash, setFlash] = useState(false)  
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const { saveScan } = useScans();
 
@@ -36,10 +37,12 @@ export default function ScannerPage() {
     };
   }, []);
 
-  // 📸 Capture frame → Scan
   const captureScan = () => {
     const video = videoRef.current;
     if (!video) return;
+
+    setFlash(true)
+    setTimeout(() => setFlash(false), 150)
 
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
@@ -64,6 +67,9 @@ export default function ScannerPage() {
 
   return (
     <main className="mx-auto max-w-md p-4">
+        {flash && (
+          <div className="fixed inset-0 z-50 bg-white animate-flash pointer-events-none" />
+        )}
       <Card className="overflow-hidden p-0">
         <CardContent className="p-0">
           <video
@@ -80,7 +86,7 @@ export default function ScannerPage() {
         <Button
           size="lg"
           onClick={captureScan}
-          className="h-14 w-14 rounded-full shadow-lg"
+          className="h-14 w-14 rounded-full shadow-lg active:scale-95 transition"
         >
           <Camera className="h-6 w-6" />
         </Button>

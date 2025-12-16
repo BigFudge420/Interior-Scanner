@@ -156,3 +156,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-flash {
+  animation: flash 150ms ease-out;
+}
