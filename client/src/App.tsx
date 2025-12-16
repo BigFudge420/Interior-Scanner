@@ -13,10 +13,6 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/scanner" element={<Scanner/>} />
       </Routes>
-      <h2>Interior Scanner</h2>
-      <p>Navigate to '/login' for the Login page</p>
-      <p>Navigate to '/dashboard' for the Dashboard page</p>
-      <p>Navigate to '/scanner' for the Scanner page</p>
     </BrowserRouter>
   )
 }
