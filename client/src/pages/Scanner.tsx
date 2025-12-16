@@ -66,7 +66,7 @@ export default function ScannerPage() {
   };
 
   return (
-    <main className="mx-auto max-w-md p-4">g
+    <main className="mx-auto max-w-md p-4">
         {flash && (
           <div className="fixed inset-0 z-50 bg-white animate-flash pointer-events-none" />
         )}
