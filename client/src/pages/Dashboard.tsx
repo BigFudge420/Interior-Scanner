@@ -11,6 +11,8 @@ export default function Dashboard() {
 
   return (
     <div className="relative">
+      {scans && 
+      <>
       <h2 className="text-4xl my-4 font-semibold">Your snaps,</h2>
       <div className="my-4 grid grid-cols-1 gap-4 items-start sm:grid-cols-2 lg:grid-cols-3">
         {scans.map((scan) => (
@@ -33,6 +35,13 @@ export default function Dashboard() {
                 <Camera />
             </Button>
         </ButtonGroup>
+      </>
+      }
+      {!scans && 
+      <div className="flex justify-center items-center">
+        <h1 className="text-4xl font-semibold">Oops! Looks like you don't have any snaps saved.</h1>
+      </div>
+      }
     </div>
   );
 }
