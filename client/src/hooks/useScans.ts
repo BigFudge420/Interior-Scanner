@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { Scan } from "@/types/Scan";
-import testData from "@/data/testData";
 
 export function useScans() {
   const [scans, setScans] = useState<Scan[]>(() => {
@@ -9,9 +8,9 @@ export function useScans() {
       if (stored) {
         return JSON.parse(stored) as Scan[];
       }
-
-      localStorage.setItem("scans", JSON.stringify(testData));
-      return testData;
+      else {
+        return []
+      }
     } catch (err) {
       console.error("Failed to read scans from localStorage", err);
       return [];
