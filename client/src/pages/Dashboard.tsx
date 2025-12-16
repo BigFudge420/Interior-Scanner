@@ -38,7 +38,7 @@ export default function Dashboard() {
       </div>
       }
       {scans.length === 0 && 
-      <div className="flex justify-center items-center">
+      <div className="flex h-screen justify-center items-center m-6">
         <h1 className="text-4xl font-semibold">Oops! Looks like you don't have any snaps saved.</h1>
       </div>
       }
