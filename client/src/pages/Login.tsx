@@ -12,7 +12,7 @@ export default function Login() {
 
     return (
         <div className="bg-background min-h-screen flex justify-center items-center min-w-screen">
-            <div className="bg-background rounded-2xl shadow-lg shadow-muted-foreground p-8 space-y-6 w-full max-w-md">
+            <div className="bg-background rounded-2xl m-5 shadow-lg shadow-muted-foreground p-8 space-y-6 w-full max-w-md">
                 <div className="text-center space-y-2">
                     <h2 className="text-3xl font-bold tracking-tighter">Welcome Back!</h2>
                     <p className="text-muted-foreground">Enter your credentials to access your account</p>
