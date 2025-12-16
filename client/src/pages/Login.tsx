@@ -11,8 +11,8 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false)
 
     return (
-        <div className="bg-primary min-h-screen flex justify-center items-center min-w-screen">
-            <div className="bg-secondary rounded-2xl shadow-lg shadow-muted-foreground p-8 space-y-6 w-full max-w-md">
+        <div className="bg-background min-h-screen flex justify-center items-center min-w-screen">
+            <div className="bg-background rounded-2xl shadow-lg shadow-muted-foreground p-8 space-y-6 w-full max-w-md">
                 <div className="text-center space-y-2">
                     <h2 className="text-3xl font-bold tracking-tighter">Welcome Back!</h2>
                     <p className="text-muted-foreground">Enter your credentials to access your account</p>
@@ -42,7 +42,7 @@ export default function Login() {
                             id="eye"
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className=" text-muted-foreground hover:text-black"
+                            className=" text-muted-foreground hover:text-foreground"
                             >
                                 {showPassword ? <EyeOff size={20}/> : <Eye size={20}/>}
                             </button>
@@ -65,7 +65,7 @@ export default function Login() {
                             <span className="w-full border-t"/>
                         </div>
                         <div className="relative flex justify-center items-center text-sm uppercase">
-                            <span className="bg-secondary px-2 text-muted-foreground">Or continue with</span>
+                            <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
