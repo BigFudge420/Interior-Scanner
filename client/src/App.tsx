@@ -30,9 +30,11 @@ function App() {
         <Route path="/scanner" element={<Scanner/>} />
       </Routes>
       <div className='flex fixed right-0 transition-all gap-3 items-center bottom-0 m-7'>
-        < Sun />
         <Switch onCheckedChange={setEnabled} checked={enabled}/>
-        < Moon /> 
+        { enabled 
+        ? < Sun /> 
+        : < Moon />
+        }
       </div>
     </BrowserRouter>
   )
